@@ -3,8 +3,8 @@ import pickle
 import string
 from nltk.corpus import stopwords
 import nltk
-nltk.download('punkt')
-nltk.download('stopwords')
+nltk.download('punkt',quiet=True)
+nltk.download('stopwords',quiet=True)
 from nltk.stem.porter import PorterStemmer
 
 ps = PorterStemmer()
@@ -12,7 +12,8 @@ ps = PorterStemmer()
 
 def transform_text(text):
     text = text.lower()
-    text = nltk.word_tokenize(text)
+    from nltk.tokenize import word_tokenize
+    text = word_tokenize(text)
 
     y = []
     for i in text:
